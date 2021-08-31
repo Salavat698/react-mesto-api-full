@@ -15,9 +15,9 @@ const { createUser, login } = require('./controllers/users');
 const userRouter = require('./routes/users');
 const cardRouter = require('./routes/cards');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3001 } = process.env;
 const app = express();
-const NotFoundError = require('./errors/notfound-err');
+// const NotFoundError = require('./errors/notfound-err');
 const { validateSignUp, validateSignIn } = require('./middlewares/validators');
 
 mongoose.connect('mongodb://localhost:27017/mestodb', {
@@ -50,8 +50,8 @@ app.use(errorLogger); // подключаем логгер ошибок
 
 app.use(errors());
 app.use(errorHandler);
-app.use('*', (req, res, next) => {
-  next(new NotFoundError('Ресурс не найден'));
-});
+// app.use('*', (req, res, next) => {
+//   next(new NotFoundError('Ресурс не найден'));
+// });
 
 app.listen(PORT);
