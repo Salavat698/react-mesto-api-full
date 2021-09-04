@@ -68,3 +68,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### публичный IP-адрес сервера и домен
+    http://slt116.nomoredomains.monster
+    https://slt116.nomoredomains.monster
+    http://slt116.nomoredomains.club
+    https://slt116.nomoredomains.club
+    http://84.201.134.104
+    https://84.201.134.104
