@@ -31,16 +31,30 @@ const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100,
 });
+const corsOption = {
+  origin: [
+    'http://slt116.nomoredomains.monster/',
+    'https://slt116.nomoredomains.monster/',
+    'http://slt116.nomoredomains.club/',
+    'https://slt116.nomoredomains.club/',
+    'http://84.201.134.104',
+    'https://84.201.134.104',
+    'http://localhost:3000',
+    'https://localhost:3000',
+  ],
+  credentials: true,
+};
 
 app.use(helmet());
 app.use(limiter);
 app.use(cookieParser());
 app.use(bodyParser.json());
-// app.use(cors({
-//   origin: 'https://slt116.nomoredomains.club',
-//   credentials: true,
-// }));
-app.use('*', cors());
+app.use(cors(corsOption));
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 app.use(requestLogger); // подключаем логгер запросов
 
 app.post('/signup', validateSignUp, createUser);
