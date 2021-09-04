@@ -50,6 +50,7 @@ app.use(limiter);
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(cors(corsOption));
+app.options('*', cors());
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
