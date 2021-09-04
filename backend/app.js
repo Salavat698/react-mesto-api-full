@@ -6,10 +6,10 @@ const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const { errors } = require('celebrate');
 const rateLimit = require('express-rate-limit');
+// const cors = require('cors');
 const { requestLogger, errorLogger } = require('./middlewares/errorloggers');
 const auth = require('./middlewares/auth');
 const errorHandler = require('./middlewares/error');
-
 const { createUser, login } = require('./controllers/users');
 
 const userRouter = require('./routes/users');
@@ -36,7 +36,7 @@ app.use(helmet());
 app.use(limiter);
 app.use(cookieParser());
 app.use(bodyParser.json());
-
+// app.use(cors());
 app.use(requestLogger); // подключаем логгер запросов
 
 app.post('/signup', validateSignUp, createUser);

@@ -136,7 +136,7 @@ getInitialCards(){
 }
 
 const api= new Api({
-  address: 'https://mesto.nomoreparties.co/v1/cohort-24',
+  address: 'http://slt116.nomoredomains.club/',
   token: '43b98874-8a2f-4742-91c1-202875e69e98',
 })
 
