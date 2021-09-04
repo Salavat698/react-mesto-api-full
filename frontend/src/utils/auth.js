@@ -1,5 +1,5 @@
 
-const BASE_URL = 'https://auth.nomoreparties.co';
+const BASE_URL = 'https://slt116.nomoredomains.club';
 
 class Auth {
   constructor({password,email}) {
