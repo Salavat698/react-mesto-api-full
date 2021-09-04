@@ -36,12 +36,11 @@ app.use(helmet());
 app.use(limiter);
 app.use(cookieParser());
 app.use(bodyParser.json());
-// https://slt116.nomoredomains.club
-app.use(cors({
-  origin: 'http://localhost:3000',
-  credentials: true,
-}));
-// app.use('*', cors());
+// app.use(cors({
+//   origin: 'https://slt116.nomoredomains.club',
+//   credentials: true,
+// }));
+app.use('*', cors());
 app.use(requestLogger); // подключаем логгер запросов
 
 app.post('/signup', validateSignUp, createUser);
