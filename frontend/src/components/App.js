@@ -202,24 +202,31 @@ function App(props) {
     },[loggedIn])
 
    function tokenCheck () {
+    auth.getToken()
+    .then((res)=>{
+        const userData = (res.data.email)
+          setEmailData({userData})
+          setloggedIn(true)
+          props.history.push("/main")
+    })
       // если у пользователя есть токен в localStorage, 
       // эта функция проверит, действующий он или нет
-      const jwt = localStorage.getItem('token');
-      if (jwt){
-        auth.getToken(jwt)
-        .then((res)=>{
-        const userData = (
-          res.data.email
-        )
-          if (res){
-            setEmailData({userData})
-            setloggedIn(true)
-            props.history.push("/main")
-          }
+      // const jwt = localStorage.getItem('token');
+      // if (jwt){
+      //   auth.getToken(jwt)
+      //   .then((res)=>{
+      //   const userData = (
+      //     res.data.email
+      //   )
+      //     if (res){
+      //       setEmailData({userData})
+      //       setloggedIn(true)
+      //       props.history.push("/main")
+      //     }
           
-        })
+      //   })
         .catch((err) => console.log(err))
-      }
+      // }
     }
 
     // 

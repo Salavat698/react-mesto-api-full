@@ -4,9 +4,7 @@ const BASE_URL = 'https://slt116.nomoredomains.club';
 class Auth {
   constructor({password,email}) {
     this.password = password;
-    this.email = email;
-    console.log(this.email)
-    
+    this.email = email;    
   }
   _checkStatus(result){
     if (result.ok) {
@@ -47,13 +45,13 @@ class Auth {
     
    }
 
-   getToken(token) {
+   getToken() {
     return fetch(`${BASE_URL}/users/me`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
+        // 'Authorization': `Bearer ${token}`, был токен в качесте аргумента
       }
     })
     .then(result => {
