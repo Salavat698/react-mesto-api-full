@@ -33,8 +33,8 @@ const limiter = rateLimit({
 });
 const corsOption = {
   origin: [
-    'https://slt116.nomoredomains.monster/',
-    'https://slt116.nomoredomains.club/',
+    'https://slt116.nomoredomains.monster',
+    'https://slt116.nomoredomains.club',
     'https://84.201.134.104',
   ],
   credentials: true,
