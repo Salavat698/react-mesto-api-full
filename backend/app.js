@@ -17,7 +17,7 @@ const cardRouter = require('./routes/cards');
 
 const { PORT = 3000 } = process.env;
 const app = express();
-// const NotFoundError = require('./errors/notfound-err');
+const NotFoundError = require('./errors/notfound-err');
 const { validateSignUp, validateSignIn } = require('./middlewares/validators');
 
 mongoose.connect('mongodb://localhost:27017/mestodb', {
@@ -46,7 +46,7 @@ const corsOption = {
 };
 
 app.use(helmet());
-app.use(limiter);
+
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(cors(corsOption));
@@ -57,10 +57,12 @@ app.get('/crash-test', () => {
   }, 0);
 });
 app.use(requestLogger); // подключаем логгер запросов
-
+app.use(limiter);
 app.post('/signup', validateSignUp, createUser);
 app.post('/signin', validateSignIn, login);
-
+app.use((req, res, next) => {
+  next(new NotFoundError('Маршрут не найден'));
+});
 app.use(auth);
 app.use('/', userRouter);
 app.use('/', cardRouter);

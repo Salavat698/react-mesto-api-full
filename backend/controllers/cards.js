@@ -1,8 +1,8 @@
 const Card = require('../models/card');
 
 const IncorrectError = require('../errors/incorrect-err'); // 400
-const NotFoundError = require('../errors/notfound-err'); // 403
-const ForbiddenError = require('../errors/forbidden-err'); // 404
+const NotFoundError = require('../errors/notfound-err'); // 404
+const ForbiddenError = require('../errors/ForbiddenError'); // 403
 
 module.exports.getCards = (req, res, next) => {
   Card.find({})
@@ -40,8 +40,8 @@ module.exports.deleteCard = (req, res, next) => {
         return;
       }
       card.deleteOne();
-      res.send({ data: card });
-    })
+    });
+  res.send({ data: 'карточка удаленна' })
     .catch((err) => {
       if (err.name === 'CastError') {
         throw new IncorrectError('Карточка с указанным id не найдена');
