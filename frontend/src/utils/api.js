@@ -136,7 +136,7 @@ getInitialCards(){
 }
 // http://slt116.nomoredomains.club
 const api= new Api({
-  address: 'http://slt116.nomoredomains.club',
+  address: 'https://slt116.nomoredomains.club',
   token: '43b98874-8a2f-4742-91c1-202875e69e98',
 })
 

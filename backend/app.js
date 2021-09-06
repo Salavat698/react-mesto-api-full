@@ -59,13 +59,12 @@ app.post('/signin', validateSignIn, login);
 app.use(auth);
 app.use('/', userRouter);
 app.use('/', cardRouter);
-
-app.use(errorLogger); // подключаем логгер ошибок
-
-app.use(errors());
-app.use(errorHandler);
 app.use((req, res, next) => {
   next(new NotFoundError('Маршрут не найден'));
 });
+
+app.use(errorLogger); // подключаем логгер ошибок
+app.use(errors());
+app.use(errorHandler);
 
 app.listen(PORT);
