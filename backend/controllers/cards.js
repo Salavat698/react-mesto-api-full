@@ -39,9 +39,8 @@ module.exports.deleteCard = (req, res, next) => {
         next(new ForbiddenError('У Вас недостаточно прав для удаления карточки'));
         return;
       }
-      card.deleteOne();
-    });
-  res.send({ data: 'карточка удаленна' })
+      card.deleteOne().then(() => res.send({ data: 'карточка удаленна' }));
+    })
     .catch((err) => {
       if (err.name === 'CastError') {
         throw new IncorrectError('Карточка с указанным id не найдена');

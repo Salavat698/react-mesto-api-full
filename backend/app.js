@@ -55,9 +55,7 @@ app.use(requestLogger); // подключаем логгер запросов
 app.use(limiter);
 app.post('/signup', validateSignUp, createUser);
 app.post('/signin', validateSignIn, login);
-app.use((req, res, next) => {
-  next(new NotFoundError('Маршрут не найден'));
-});
+
 app.use(auth);
 app.use('/', userRouter);
 app.use('/', cardRouter);
@@ -66,8 +64,8 @@ app.use(errorLogger); // подключаем логгер ошибок
 
 app.use(errors());
 app.use(errorHandler);
-// app.use('*', (req, res, next) => {
-//   next(new NotFoundError('Ресурс не найден'));
-// });
+app.use((req, res, next) => {
+  next(new NotFoundError('Маршрут не найден'));
+});
 
 app.listen(PORT);
