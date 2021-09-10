@@ -40,8 +40,13 @@ const corsOption = {
   credentials: true,
 };
 app.use(cors(corsOption));
-// app.options('*', cors());
-app.use(helmet());
+app.options('*', cors());
+// app.use(helmet())
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  }),
+);
 app.use(cookieParser());
 app.use(bodyParser.json());
 
