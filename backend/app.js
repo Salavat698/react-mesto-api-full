@@ -41,12 +41,7 @@ const corsOption = {
 };
 app.use(cors(corsOption));
 app.options('*', cors());
-// app.use(helmet())
-app.use(
-  helmet({
-    contentSecurityPolicy: false,
-  }),
-);
+app.use(helmet());
 app.use(cookieParser());
 app.use(bodyParser.json());
 
