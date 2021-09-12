@@ -39,9 +39,10 @@ const limiter = rateLimit({
 //   ],
 //   credentials: true,
 // };
-app.options('*', cors());
+
+app.use(cors());
 app.use(helmet());
-// app.use(cors(corsOption));
+// app.options('*', cors());
 
 app.use(cookieParser());
 app.use(bodyParser.json());
