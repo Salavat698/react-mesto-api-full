@@ -39,9 +39,10 @@ const corsOption = {
   ],
   credentials: true,
 };
+app.use(helmet());
 app.use(cors(corsOption));
 app.options('*', cors());
-app.use(helmet());
+
 app.use(cookieParser());
 app.use(bodyParser.json());
 
