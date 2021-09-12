@@ -31,17 +31,17 @@ const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100,
 });
-const corsOption = {
-  origin: [
-    'https://slt116.nomoredomains.monster',
-    'https://slt116.nomoredomains.club',
-    'https://84.201.134.104',
-  ],
-  credentials: true,
-};
-app.use(helmet());
-app.use(cors(corsOption));
+// const corsOption = {
+//   origin: [
+//     'https://slt116.nomoredomains.monster',
+//     'https://slt116.nomoredomains.club',
+//     'https://84.201.134.104',
+//   ],
+//   credentials: true,
+// };
 app.options('*', cors());
+app.use(helmet());
+// app.use(cors(corsOption));
 
 app.use(cookieParser());
 app.use(bodyParser.json());
