@@ -15,7 +15,7 @@ const { createUser, login } = require('./controllers/users');
 const userRouter = require('./routes/users');
 const cardRouter = require('./routes/cards');
 
-const { PORT = 3001 } = process.env;
+const { PORT = 3000 } = process.env;
 const app = express();
 const NotFoundError = require('./errors/notfound-err');
 const { validateSignUp, validateSignIn } = require('./middlewares/validators');
@@ -34,9 +34,7 @@ const limiter = rateLimit({
 
 // app.use(cors());
 app.use(cors({
-
-  origin: 'http://localhost:3000',
-  // origin: 'http://slt116.nomoredomains.monster',
+  origin: 'http://slt116.nomoredomains.monster',
   credentials: true,
 }));
 app.use(helmet());
