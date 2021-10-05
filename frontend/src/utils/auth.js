@@ -1,5 +1,5 @@
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'http://slt116.nomoredomains.club';
 
 class Auth {
   constructor({password,email}) {
