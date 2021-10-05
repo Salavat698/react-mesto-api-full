@@ -1,0 +1,14 @@
+.header__exit{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: right;
+    color: #A9A9A9;
+    align-self: center;
+}
+.header__exit:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}

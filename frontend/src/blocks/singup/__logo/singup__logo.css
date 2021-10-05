@@ -1,0 +1,18 @@
+.singup__logo{
+    width: 142px;
+    height: 33px;
+    margin-top: 45px;
+    margin-bottom: 36px;
+    margin-left: 50px;
+}
+
+@media (max-width: 400px){
+    .singup__logo{
+        margin-top: 51px;
+        margin-left: 0;
+        margin-right: 10px;
+        /* margin-left: 27px; */
+        width: 103px;
+        height: 24px;
+    }
+}

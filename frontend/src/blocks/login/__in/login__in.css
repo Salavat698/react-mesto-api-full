@@ -1,0 +1,9 @@
+.login__in{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 60px;
+    max-width: 358px;
+    margin: auto;
+}
+

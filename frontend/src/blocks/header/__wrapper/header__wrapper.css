@@ -1,0 +1,10 @@
+.header__wrapper{
+    display: flex;
+    flex-direction: row;
+    margin-right: 15px;
+}
+@media (max-width:576px){
+    .header__wrapper{
+        display: none;
+    }
+}
