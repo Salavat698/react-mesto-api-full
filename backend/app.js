@@ -34,7 +34,14 @@ const limiter = rateLimit({
 
 // app.use(cors());
 app.use(cors({
-  origin: 'https://slt116.nomoredomains.monster',
+  origin: [
+    'https://slt116.nomoredomains.monster',
+    'http://slt116.nomoredomains.monster',
+    'http://localhost:3000',
+    'https://localhost:3000',
+    'http://84.201.134.104',
+    'https://84.201.134.104',
+  ],
   credentials: true,
 }));
 app.use(helmet());
