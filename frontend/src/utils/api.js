@@ -137,7 +137,7 @@ getInitialCards(){
 }
 
 const api= new Api({
-  address: 'http://localhost:3000',
+  address: 'https://slt116.nomoredomains.club',
   token: '43b98874-8a2f-4742-91c1-202875e69e98',
 })
 
