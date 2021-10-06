@@ -8,7 +8,7 @@ const { errors } = require('celebrate');
 const rateLimit = require('express-rate-limit');
 const cors = require('cors');
 const { requestLogger, errorLogger } = require('./middlewares/errorloggers');
-// const auth = require('./middlewares/auth');
+const auth = require('./middlewares/auth');
 const errorHandler = require('./middlewares/error');
 const { createUser, login } = require('./controllers/users');
 
@@ -53,7 +53,7 @@ app.use(requestLogger); // подключаем логгер запросов
 app.post('/signup', validateSignUp, createUser);
 app.post('/signin', validateSignIn, login);
 
-// app.use(auth);
+app.use(auth);
 app.use('/', userRouter);
 app.use('/', cardRouter);
 app.use('*', () => {
