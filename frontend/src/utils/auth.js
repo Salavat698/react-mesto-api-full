@@ -1,5 +1,6 @@
 
 const BASE_URL = 'https://slt116.nomoredomains.club';
+// const BASE_URL = 'http://localhost:3001';
 
 class Auth {
   constructor({password,email}) {

@@ -8,14 +8,14 @@ const { errors } = require('celebrate');
 const rateLimit = require('express-rate-limit');
 const cors = require('cors');
 const { requestLogger, errorLogger } = require('./middlewares/errorloggers');
-const auth = require('./middlewares/auth');
+// const auth = require('./middlewares/auth');
 const errorHandler = require('./middlewares/error');
 const { createUser, login } = require('./controllers/users');
 
 const userRouter = require('./routes/users');
 const cardRouter = require('./routes/cards');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3001 } = process.env;
 const app = express();
 const NotFoundError = require('./errors/notfound-err');
 const { validateSignUp, validateSignIn } = require('./middlewares/validators');
@@ -32,7 +32,6 @@ const limiter = rateLimit({
   max: 100,
 });
 
-// app.use(cors());
 app.use(cors({
   origin: [
     'https://slt116.nomoredomains.monster',
@@ -54,12 +53,11 @@ app.use(requestLogger); // подключаем логгер запросов
 app.post('/signup', validateSignUp, createUser);
 app.post('/signin', validateSignIn, login);
 
-app.use(auth);
+// app.use(auth);
 app.use('/', userRouter);
 app.use('/', cardRouter);
-app.use('*', (req, res, next) => {
-  console.log(req, res, next);
-  throw new Error(new NotFoundError('Ресурс не найден'));
+app.use('*', () => {
+  throw new NotFoundError('Ресурс не найден');
 });
 app.use(errorLogger); // подключаем логгер ошибок
 
